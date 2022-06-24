@@ -1,5 +1,80 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cygnetix</title><link>/</link><description>Recent content on Cygnetix</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 08 Aug 2016 00:00:00 +1000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>/about/</link><pubDate>Fri, 24 Jun 2022 11:32:06 +1000</pubDate><guid>/about/</guid><description>
-Hey there!
-Nothing much to say about me just yet. I&amp;rsquo;ll put something here in the future.</description></item><item><title>Learning to live with SELinux</title><link>/posts/learning-to-live-with-selinux/</link><pubDate>Mon, 08 Aug 2016 00:00:00 +1000</pubDate><guid>/posts/learning-to-live-with-selinux/</guid><description>
-SELinux isn’t everyone’s favourite operating system feature but, love it or hate it, it’s now been an integral part of the RedHat Enterprise Linux OS for some time and isn’t going anywhere any time soon.
-Usually the bad experiences admins have with SELinux are much the same; they’ve moved some files, or possibly trying to serve up files from a non-default directory, and things just mysteriously don’t work. Hours of consulting documentation and trawling through Google finally points them in the direction of the /var/log/audit/audit.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cygnetix</title>
+    
+    
+    
+    <link>/</link>
+    <description>Recent content on Cygnetix</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Aug 2016 00:00:00 +1000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Fri, 24 Jun 2022 11:32:06 +1000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Hey there!
+Nothing much to say about me just yet. I&amp;rsquo;ll put something here in the future.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Quick Wins With Selinux</title>
+      <link>/posts/quick-wins-with-selinux/</link>
+      <pubDate>Wed, 10 Aug 2016 00:00:00 +1000</pubDate>
+      
+      <guid>/posts/quick-wins-with-selinux/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          If you’re reading this in the hope that all your SELinux woes will be magically resolved, I have some bad news for you. If you want to understand how to manage SELinux properly then you’re going to have to learn how to write a policy, and sooner or later I really hope that you will. In the mean time this post will provide you with a list of commands that should get you by 80% of the time, even if you don’t yet understand them.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Learning to live with SELinux</title>
+      <link>/posts/learning-to-live-with-selinux/</link>
+      <pubDate>Mon, 08 Aug 2016 00:00:00 +1000</pubDate>
+      
+      <guid>/posts/learning-to-live-with-selinux/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          SELinux isn’t everyone’s favourite operating system feature but, love it or hate it, it’s now been an integral part of the RedHat Enterprise Linux OS for some time and isn’t going anywhere any time soon.
+Usually the bad experiences admins have with SELinux are much the same; they’ve moved some files, or possibly trying to serve up files from a non-default directory, and things just mysteriously don’t work. Hours of consulting documentation and trawling through Google finally points them in the direction of the /var/log/audit/audit.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

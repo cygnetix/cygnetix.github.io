@@ -1,0 +1,36 @@
++++
+draft = false
+date = 2016-08-08T00:00:00+10:00
+title = "My first post"
+description = "SELinux isn’t everyone’s favourite operating system feature but, love it or hate it, it’s now been an integral part of the RedHat Enterprise Linux OS for some time and isn’t going anywhere any time soon. So, let's learn how to live with it."
+slug = ""
+authors = ["cygnetix"]
+tags = ["security"]
+categories = ["linux","selinux"]
+externalLink = ""
+series = []
++++
+
+SELinux isn’t everyone’s favourite operating system feature but, love it or hate it, it’s now been an integral part of the [RedHat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) OS for some time and isn’t going anywhere any time soon.
+
+Usually the bad experiences admins have with SELinux are much the same; they’ve moved some files, or possibly trying to serve up files from a non-default directory, and things just mysteriously don’t work. Hours of consulting documentation and trawling through Google finally points them in the direction of the /var/log/audit/audit.log file where a trail of incomprehensible events seem to indicate that SELinux has been quietly preventing things from working.
+
+This was my thoughts of SELinux, maybe 5 years ago. Since then I’ve taken the time to learn how SELinux works, at least to the point where I can resolve most of the trivial problems encountered.
+
+The first thing that really helped to understand the purpose of SELinux was hearing Dan Walsh repeatedly say “SELinux is a labelling system”. It makes sense right? SELinux’s sole purpose is to label your files, processes and ports and to then define policies that dictate the interactions between those labels.
+
+As an example, the Apache web service is labelled with httpd_t and in its policy specifies that it’s allowed to read files with the label httpd_sys_content_t. If Apache attempts to read a file that has a label other than what its policy allows, passwd_file_t for example, then SELinux will step in to block the read operation and an event will be recorded in the audit.log file.
+
+So, what’s the beef with SELinux? Why are sysadmins still opting to setenforce 0? Here’s my list of SELinux gripes which I think make learning to live with SELinux difficult:
+
+- **Too many tools and no naming consistency:** There’s a whole swag of SELinux commands: getenforce, semanage, getsebool, sestatus, restorecon and I find that trying to remember which one to use for each occasion isn’t always obvious. Some even duplicate functionality but present the information in slightly different ways.
+
+- **Audit logs give you labels but not file paths:** When reviewing an SELinux error, it’s useful to know the source context and target context provided in the audit.log file, but it would also be handy to know the actual process name and/or file name that is being blocked. Usually you can make some safe assumptions to figure this information out, but it takes time.
+
+- **A shortage of good, concise, documentation:** There’s some good resources available but when it comes to policy writing it really feels like the documentation hasn’t kept up with the development of SELinux and there’s a lot of SELinux concepts and terminology to understand before getting up to speed with how to resolve SELinux related issues.
+
+Even with those shortcomings, SELinux provides a very effective security control which is well worth taking the time to learn and understand. Even in permissive mode, I would argue that there is value in having it act as an IPS by raise events for abnormal activity (policy violations) even if you’re not ready to start blocking them.
+
+In the coming posts I’m hoping to provide some of my own guidance and share how I learnt to manage SELinux and avoid the temptation to simply disable it altogether.
+
+If there’s one take home message from this article it would be to at least run SELinux in permissive mode and ensure you’re forwarding your audit.log file to a centralised log management system like Elastic Stack or Splunk.
